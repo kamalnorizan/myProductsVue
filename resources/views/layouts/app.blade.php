@@ -1737,32 +1737,32 @@
     </div>
     <!-- END OVERLAY -->
     <!-- BEGIN VENDOR JS -->
-    <script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
     <!--  A polyfill for browsers that don't support ligatures: remove liga.js if not needed-->
-    <script src="assets/plugins/liga.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/modernizr.custom.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/popper/umd/popper.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-actual/jquery.actual.min.js"></script>
-    <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/select2/js/select2.full.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/classie/classie.js"></script>
+    <script src="{{ asset('assets/plugins/liga.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jquery/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/modernizr.custom.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/popper/umd/popper.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jquery/jquery-easy.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jquery-unveil/jquery.unveil.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jquery-ios-list/jquery.ioslist.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/jquery-actual/jquery.actual.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/select2/js/select2.full.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/plugins/classie/classie.js') }}"></script>
     <!-- END VENDOR JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
-    <script src="pages/js/pages.js"></script>
+    <script src="{{ asset('pages/js/pages.js') }}"></script>
     <!-- END CORE TEMPLATE JS -->
     <!-- BEGIN PAGE LEVEL JS -->
-    <script src="assets/js/scripts.js" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS -->
     <!-- END CORE TEMPLATE JS -->
     <!-- BEGIN PAGE LEVEL JS -->
-    <script src="assets/js/scripts.js" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS -->
   </body>
 </html>
