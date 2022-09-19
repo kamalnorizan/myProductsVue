@@ -26,7 +26,7 @@
                 <tr>
                     <td>{{$i+1}}</td>
                     <td>{{$category->name}}</td>
-                    <td></td>
+                    <td>{{$category->products->count()}}</td>
                     <td>Actions</td>
                 </tr>
                 @endforeach
