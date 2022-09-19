@@ -2,7 +2,7 @@
 
 @section('head')
 <style>
-    .dataTables_length{
+    .dataTables_wrapper .row > div {
         flex-direction: column!important;
     }
 </style>
@@ -38,6 +38,11 @@
 
 @section('script')
 <script>
-    $('#category_tbl').dataTable();
+    $('#category_tbl').dataTable({
+        language:{
+            "search":  "Carian:",
+            "lengthMenu": "Papar _MENU_ senarai",
+        }
+    });
 </script>
 @endsection
