@@ -23,6 +23,7 @@
     <link class="main-stylesheet" href="{{ asset('pages/css/themes/corporate.css') }}" rel="stylesheet" type="text/css" />
     <!-- Please remove the file below for production: Contains demo classes -->
     <link class="main-stylesheet" href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+    @yield('head')
   </head>
   <body class="fixed-header menu-pin menu-behind">
     <!-- BEGIN SIDEBPANEL-->
@@ -267,8 +268,7 @@
           <!-- END JUMBOTRON -->
           <!-- START CONTAINER FLUID -->
           <div class=" container-fluid   container-fixed-lg">
-            <!-- BEGIN PlACE PAGE CONTENT HERE -->
-            <!-- END PLACE PAGE CONTENT HERE -->
+            @yield('content')
           </div>
           <!-- END CONTAINER FLUID -->
         </div>
@@ -451,5 +451,6 @@
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS -->
+    @yield('script')
   </body>
 </html>
