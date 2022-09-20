@@ -22,6 +22,9 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $categories->load('products');
+                @endphp
                 @foreach ($categories as $i=>$category)
                 <tr>
                     <td>{{$i+1}}</td>
@@ -34,6 +37,7 @@
                     </td>
                 </tr>
                 @endforeach
+
             </tbody>
         </table>
     </div>

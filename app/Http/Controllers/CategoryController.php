@@ -17,6 +17,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
+        // dd($categories);
         return view('category.index',compact('categories'));
     }
 
@@ -60,8 +61,15 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-
+        // $category = Category::find($category);
         dd($category);
+    }
+
+    public function summary()
+    {
+        $categories = Category::withCount('products')->get();
+
+        return view('category.summary',compact('categories'));
     }
 
     /**
