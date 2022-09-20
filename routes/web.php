@@ -29,7 +29,7 @@ Route::get('/', function () {
 Route::prefix('category')->group(function () {
     Route::get('/', [CategoryController::class,'index'])->name('category.index');
     Route::get('/summary', [CategoryController::class,'summary'])->name('category.summary');
-    Route::get('/category/summaryByAjax', [CategoryController::class,'summaryByAjax'])->name('category.summaryByAjax');
+    Route::post('/category/summaryByAjax', [CategoryController::class,'summaryByAjax'])->name('category.summaryByAjax');
     Route::get('/{category}/edit', [CategoryController::class,'edit'])->name('category.edit');
 });
 

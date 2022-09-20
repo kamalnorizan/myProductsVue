@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Http\Request;
+
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -72,9 +74,9 @@ class CategoryController extends Controller
         return view('category.summary',compact('categories'));
     }
 
-    public function summaryByAjax()
+    public function summaryByAjax(Request $request)
     {
-        $categories = Category::withCount('products')->get();
+        $categories = Category::whereIn('id',$request->categories)->withCount('products')->get();
 
         $data['nama'] = $categories->pluck('name');
         $data['count'] = $categories->pluck('products_count');

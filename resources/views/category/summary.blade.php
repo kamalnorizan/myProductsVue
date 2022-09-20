@@ -10,6 +10,11 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Summary</h4>
+                <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }} form-group-default ">
+                    {!! Form::label('category', 'Filter Category') !!}
+                    {!! Form::select('category',$categories->pluck('name','id'), null, ['id' => 'category', 'class' => 'form-control','multiple']) !!}
+                    <small class="text-danger">{{ $errors->first('category') }}</small>
+                </div>
                 <div class="ct-chart"></div>
             </div>
         </div>
@@ -29,19 +34,26 @@
 @section('script')
 <script src="{{ asset('js/chartist.min.js') }}"></script>
 <script>
+    $('#category').select2();
+    $('#category').change(function (e) {
+        $.ajax({
+            type: "post",
+            url: "{{route('category.summaryByAjax')}}",
+            data: {
+                _token: '{{ csrf_token() }}',
+                categories: $('#category').val()
+            },
+            success: function (response) {
+                console.log(response);
+                new Chartist.Bar('.ct-chart', {
+                labels: response.nama,
+                series: response.count
+                }, {
+                distributeSeries: true
+                });
+            }
+        });
 
-    $.ajax({
-        type: "get",
-        url: "{{route('category.summaryByAjax')}}",
-        success: function (response) {
-            console.log(response);
-            new Chartist.Bar('.ct-chart', {
-              labels: response.nama,
-              series: response.count
-            }, {
-              distributeSeries: true
-            });
-        }
     });
 
     new Chartist.Bar('.ct-chartistnonajax', {
