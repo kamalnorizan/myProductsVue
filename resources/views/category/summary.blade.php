@@ -16,6 +16,7 @@
                     <small class="text-danger">{{ $errors->first('category') }}</small>
                 </div>
                 <div class="ct-chart"></div>
+                <div class="ct-piechart"></div>
             </div>
         </div>
     </div>
@@ -51,6 +52,11 @@
                 }, {
                 distributeSeries: true
                 });
+                var data = {
+                    labels: response.nama,
+                    series: response.count
+                };
+                new Chartist.Pie('.ct-piechart', data);
             }
         });
 
