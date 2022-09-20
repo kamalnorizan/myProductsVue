@@ -32,6 +32,7 @@ Route::prefix('category')->group(function () {
 
 Route::prefix('product')->group(function () {
     Route::get('/', [ProductController::class,'index'])->name('product.index');
+    Route::get('/productsbycategory/{category}', [ProductController::class,'productsbycategory'])->name('product.productsbycategory');
 });
 
 
