@@ -27,7 +27,7 @@
                     <td>{{$i+1}}</td>
                     <td>{{$category->name}}</td>
                     <td>{{$category->products->count()}}</td>
-                    <td>Actions</td>
+                    <td><button class="btn btn-sm btn-warning btn-test" data-name="{{$category->name}}" data-id="{{$category->id}}" type="button">Edit</button></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -43,6 +43,15 @@
             "search":  "Carian:",
             "lengthMenu": "Papar _MENU_ senarai",
         }
+    });
+
+    $('.btn-test').click(function (e) {
+        e.preventDefault();
+        var id = $(this).attr('data-id');
+        var name = $(this).attr('data-name');
+        alert(id+'-'+name);
+
+        window.open("/category/"+id+"/edit");
     });
 </script>
 @endsection

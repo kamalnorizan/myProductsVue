@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,12 +13,25 @@ use App\Http\Controllers\CategoryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-DB::listen(function ($event) {
-    dump($event->sql);
-});
+// DB::listen(function ($event) {
+//     dump($event->sql);
+// });
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('category', [CategoryController::class,'index']);
+// Route::get('category', [CategoryController::class,'index'])->name('category.index');
+
+// Route::resource('category', CategoryController::class)->except(['create','show','update','edit','store','destroy']);
+
+Route::prefix('category')->group(function () {
+    Route::get('/', [CategoryController::class,'index'])->name('category.index');
+    Route::get('/{category}/edit', [CategoryController::class,'edit'])->name('category.edit');
+});
+
+Route::prefix('product')->group(function () {
+    Route::get('/', [ProductController::class,'index'])->name('product.index');
+});
+
+

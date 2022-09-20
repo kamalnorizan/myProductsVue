@@ -15,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::first();
-        dd($categories);
+        $categories = Category::all();
+
         return view('category.index',compact('categories'));
     }
 
@@ -60,7 +60,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+
+        dd($category);
     }
 
     /**
