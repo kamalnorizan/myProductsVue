@@ -17,6 +17,7 @@ DB::listen(function ($event) {
     dump($event->sql);
 });
 
+
 Route::get('/', function () {
     return view('welcome');
 });
