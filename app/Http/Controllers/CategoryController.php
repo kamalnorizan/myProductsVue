@@ -72,6 +72,16 @@ class CategoryController extends Controller
         return view('category.summary',compact('categories'));
     }
 
+    public function summaryByAjax()
+    {
+        $categories = Category::withCount('products')->get();
+
+        $data['nama'] = $categories->pluck('name');
+        $data['count'] = $categories->pluck('products_count');
+
+        return $data;
+    }
+
     /**
      * Update the specified resource in storage.
      *
