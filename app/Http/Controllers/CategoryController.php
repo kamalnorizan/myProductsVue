@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-
+use Inertia\Inertia;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -20,7 +20,8 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         // dd($categories);
-        return view('category.index',compact('categories'));
+        // return view('category.index',compact('categories'));
+        return Inertia::render('Category',compact('categories'));
     }
 
     /**

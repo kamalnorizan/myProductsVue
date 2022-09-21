@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\CategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,8 +30,8 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/category', function () {
-    return Inertia::render('Category');
-})->middleware(['auth', 'verified'])->name('category');
+Route::get('/category', [CategoryController::class,'index'])->middleware(['auth', 'verified'])->name('category');
+
+
 
 require __DIR__.'/auth.php';
