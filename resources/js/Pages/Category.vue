@@ -1,6 +1,8 @@
 <script setup>
-    import BreezeAuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
-    import PrimaryButton from '@/components/PrimaryButton.vue'
+    import BreezeAuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+    import PrimaryButton from '@/components/PrimaryButton.vue';
+    import CategoryItem from '@/components/CategoryItem.vue';
+
 
     defineProps({
         categories: Array,
@@ -21,12 +23,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="category in categories">
-                                <td>{{category.id}}</td>
-                                <td>{{category.name}}</td>
-                                <td>{{category.products_count}}</td>
-                                <td></td>
-                            </tr>
+                            <CategoryItem v-for="category in categories" :category="category"></CategoryItem>
                         </tbody>
                     </table>
                 </div>

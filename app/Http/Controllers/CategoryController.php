@@ -19,8 +19,6 @@ class CategoryController extends Controller
     {
         $categories = Category::withCount('products')->get();
 
-        // dd($categories);
-        // return view('category.index',compact('categories'));
         return Inertia::render('Category',compact('categories'));
     }
 
