@@ -24,7 +24,7 @@
                             <tr v-for="category in categories">
                                 <td>{{category.id}}</td>
                                 <td>{{category.name}}</td>
-                                <td></td>
+                                <td>{{category.products_count}}</td>
                                 <td></td>
                             </tr>
                         </tbody>
