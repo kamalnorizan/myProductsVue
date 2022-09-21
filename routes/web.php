@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
+use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,29 +14,22 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// DB::listen(function ($event) {
-//     dump($event->sql);
-// });
-
 
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 
-// Route::get('category', [CategoryController::class,'index'])->name('category.index');
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::resource('category', CategoryController::class)->except(['create','show','update','edit','store','destroy']);
+Route::get('/category', function () {
+    return Inertia::render('Category');
+})->middleware(['auth', 'verified'])->name('category');
 
-Route::prefix('category')->group(function () {
-    Route::get('/', [CategoryController::class,'index'])->name('category.index');
-    Route::get('/summary', [CategoryController::class,'summary'])->name('category.summary');
-    Route::post('/category/summaryByAjax', [CategoryController::class,'summaryByAjax'])->name('category.summaryByAjax');
-    Route::get('/{category}/edit', [CategoryController::class,'edit'])->name('category.edit');
-});
-
-Route::prefix('product')->group(function () {
-    Route::get('/', [ProductController::class,'index'])->name('product.index');
-    Route::get('/productsbycategory/{category}', [ProductController::class,'productsbycategory'])->name('product.productsbycategory');
-});
-
-
+require __DIR__.'/auth.php';
