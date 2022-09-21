@@ -13,7 +13,7 @@
         <div class="py-12">
             <div class="px-8">
                 <div class="bg-white px-8">
-                    <table class="table-fixed w-full" id="category_tbl">
+                    <table class="table" id="category_tbl">
                         <thead>
                             <tr>
                                 <th>Bil</th>

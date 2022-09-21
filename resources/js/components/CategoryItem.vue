@@ -10,6 +10,6 @@ export default {
     <td>{{category.id}}</td>
     <td>{{category.name}}</td>
     <td>{{category.products_count}}</td>
-    <td><button>Show</button></td>
+    <td><button class="btn btn-primary">Show</button></td>
 </tr>
 </template>
