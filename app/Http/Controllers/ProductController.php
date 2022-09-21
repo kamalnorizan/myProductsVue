@@ -19,6 +19,13 @@ class ProductController extends Controller
         //
     }
 
+    public function fetchProducts()
+    {
+        $products = Product::with('category')->get();
+
+        return response()->json($products);
+    }
+
     public function productsbycategory(Category $category)
     {
         dd($category->products);

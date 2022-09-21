@@ -22,6 +22,13 @@ class CategoryController extends Controller
         return Inertia::render('Category',compact('categories'));
     }
 
+    public function tree()
+    {
+        $categories = Category::withCount('products')->get();
+
+        return Inertia::render('CategoryTree',compact('categories'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

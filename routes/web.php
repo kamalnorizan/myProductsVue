@@ -30,7 +30,8 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/category', [CategoryController::class,'index'])->middleware(['auth', 'verified'])->name('category');
+Route::get('/category', [CategoryController::class,'index'])->middleware(['auth', 'verified'])->name('category.index');
+Route::get('/category/tree', [CategoryController::class,'tree'])->middleware(['auth', 'verified'])->name('category.tree');
 
 
 
