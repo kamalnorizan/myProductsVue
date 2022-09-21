@@ -12,6 +12,7 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Category List</h4>
+        <welcometext></welcometext>
         <table class="table" id="category_tbl">
             <thead>
                 <tr>

@@ -26,6 +26,7 @@
     <link class="main-stylesheet" href="{{ asset('pages/css/themes/corporate.css') }}" rel="stylesheet" type="text/css" />
     <!-- Please remove the file below for production: Contains demo classes -->
     <link class="main-stylesheet" href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{mix('css/app.css')}}">
     @yield('head')
   </head>
   <body class="fixed-header menu-pin menu-behind">
@@ -271,7 +272,9 @@
           <!-- END JUMBOTRON -->
           <!-- START CONTAINER FLUID -->
           <div class=" container-fluid   container-fixed-lg">
-            @yield('content')
+            <div id="app">
+                @yield('content')
+            </div>
           </div>
           <!-- END CONTAINER FLUID -->
         </div>
@@ -366,7 +369,7 @@
                 <div class="d-flex m-t-15">
                   <!-- BEGIN Search Result Item Thumbnail !-->
                   <div class="thumbnail-wrapper d48 circular bg-success text-white ">
-                    <div>M
+                    <div>
                     </div>
                   </div>
                   <!-- END Search Result Item Thumbnail !-->
@@ -459,6 +462,7 @@
     <!-- END CORE TEMPLATE JS -->
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
+    <script src="{{mix('js/app.js')}}"  type="text/javascript"></script>
     <!-- END PAGE LEVEL JS -->
     @yield('script')
   </body>
