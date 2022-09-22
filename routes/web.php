@@ -40,4 +40,6 @@ Route::get('/category/create', function () {
 
 Route::get('product/productbycategory/{category}', [ProductController::class,'productsbycategory'])->name('product.productbycategory');
 
+Route::delete('product/{product}', [ProductController::class,'destroy'])->name('product.destroy');
+
 require __DIR__.'/auth.php';
