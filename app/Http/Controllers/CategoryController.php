@@ -98,7 +98,10 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect('/category')->with('message', 'Category updated successfully');
     }
 
     /**
@@ -109,6 +112,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect('/category')->with('message', 'Category deleted successfully');
     }
 }

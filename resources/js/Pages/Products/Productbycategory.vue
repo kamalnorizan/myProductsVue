@@ -1,6 +1,7 @@
 <script setup>
 import ProductItem from '@/components/ProductItem.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+
 defineProps({
     products: Array,
     category: Object,
