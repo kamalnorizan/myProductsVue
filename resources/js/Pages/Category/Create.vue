@@ -1,10 +1,10 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { reactive } from 'vue';
+import { reactive, onMounted } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import {Link, Head} from '@inertiajs/inertia-vue3'
 
-defineProps({
+const props = defineProps({
     category: Object,
 });
 
@@ -15,6 +15,11 @@ const form = reactive({
 const submit =  () => {
     Inertia.post('/category', form);
 };
+
+onMounted(()=>{
+    console.log(props);
+    console.log(form.name);
+});
 
 </script>
 <template>
