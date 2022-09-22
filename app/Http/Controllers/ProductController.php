@@ -23,7 +23,7 @@ class ProductController extends Controller
     {
         $products = $category->products;
 
-        return Inertia::render('Products/Productbycategory',compact('products'));
+        return Inertia::render('Products/Productbycategory',compact('products','category'));
     }
 
     /**
