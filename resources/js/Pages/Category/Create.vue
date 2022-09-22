@@ -5,7 +5,7 @@ import { Inertia } from '@inertiajs/inertia';
 import {Link, Head} from '@inertiajs/inertia-vue3'
 
 defineProps({
-    categories: Array,
+    category: Object,
 });
 
 const form = reactive({

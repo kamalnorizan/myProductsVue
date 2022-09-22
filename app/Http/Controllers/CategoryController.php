@@ -68,7 +68,8 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         // $category = Category::find($category);
-        dd($category);
+        // dd($category);
+        return Inertia::render('Category/Create',compact('category'));
     }
 
     public function summary()

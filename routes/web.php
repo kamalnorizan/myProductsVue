@@ -32,11 +32,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/category', [CategoryController::class,'index'])->middleware(['auth', 'verified'])->name('category.index');
+
 Route::post('/category', [CategoryController::class,'store'])->middleware(['auth', 'verified'])->name('category.store');
 
 Route::get('/category/create', function () {
     return Inertia::render('Category/Create');
 })->middleware(['auth', 'verified'])->name('category.create');
+
+Route::get('/category/{category}/edit', [CategoryController::class,'edit'])->middleware(['auth', 'verified'])->name('category.edit');
 
 Route::get('product/productbycategory/{category}', [ProductController::class,'productsbycategory'])->name('product.productbycategory');
 
