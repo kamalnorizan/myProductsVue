@@ -38,9 +38,13 @@ class CategoryController extends Controller
      * @param  \App\Http\Requests\StoreCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(Request $request)
     {
-        //
+        // $category = Category::create($request->all());
+        $category = new Category;
+        $category->name = $request->name;
+        $category->save();
+        return redirect('/category');
     }
 
     /**
