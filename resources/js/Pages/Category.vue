@@ -1,14 +1,20 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import CategoryItem from '@/components/CategoryItem.vue';
-import {Link} from '@inertiajs/inertia-vue3'
+import {Link, Head} from '@inertiajs/inertia-vue3'
 
 defineProps({
     categories: Array,
 });
 </script>
 <template>
+    <Head title="Category"></Head>
     <BreezeAuthenticatedLayout>
+        <template #header>
+            <h2>
+                Category
+            </h2>
+        </template>
         <div class="py-12 px-12">
             <div class="bg-white p-8">
                 <Link href="category/create" class="btn btn-info float-right">Create</Link>
