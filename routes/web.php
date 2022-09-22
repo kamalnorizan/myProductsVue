@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,6 @@ Route::get('/category/create', function () {
     return Inertia::render('Category/Create');
 })->middleware(['auth', 'verified'])->name('category.create');
 
-
+Route::get('product/productbycategory/{category}', [ProductController::class,'productsbycategory'])->name('product.productbycategory');
 
 require __DIR__.'/auth.php';

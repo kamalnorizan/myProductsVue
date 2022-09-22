@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-
+use Inertia\Inertia;
 class ProductController extends Controller
 {
     /**
@@ -21,7 +21,9 @@ class ProductController extends Controller
 
     public function productsbycategory(Category $category)
     {
-        dd($category->products);
+        $products = $category->products;
+
+        return Inertia::render('Products/Productbycategory',compact('products'));
     }
 
     /**
