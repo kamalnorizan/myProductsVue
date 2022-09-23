@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-
+use Auth;
 class CategoryController extends Controller
 {
     /**
@@ -17,6 +17,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        if(!Auth::user()->can('show-category')){
+            abort(403);
+        }
         $categories = Category::withCount('products')->get();
 
         return Inertia::render('Category',compact('categories'));
@@ -67,6 +70,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        if(!Auth::user()->can('update-category')){
+            abort(403);
+        }
         // $category = Category::find($category);
         // dd($category);
         return Inertia::render('Category/Create',compact('category'));
@@ -98,6 +104,10 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
+        if(!Auth::user()->can('update-category')){
+            abort(403);
+        }
+
         $category->name = $request->name;
         $category->save();
 
