@@ -20,6 +20,7 @@ class Category extends Model
 
     protected $guarded = ['id'];
 
+
     /**
      * Get all of the products for the Category
      *

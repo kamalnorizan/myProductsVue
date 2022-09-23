@@ -30,6 +30,7 @@ const remove = (id)=>{
     <tr>
         <td>{{category.id}}</td>
         <td>{{category.name}}</td>
+        <td>{{category.user_id}}</td>
         <td>{{category.products_count}} </td>
         <td>
             <Link :href="route('product.productbycategory',{category:category.id})" class="btn btn-sm btn-primary ml-1">Show </Link>

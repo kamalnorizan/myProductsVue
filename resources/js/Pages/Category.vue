@@ -29,6 +29,7 @@ defineProps({
                         <tr>
                             <th>Bil </th>
                             <th>Kategori</th>
+                            <th>Created by</th>
                             <th>Bil(Produk)</th>
                             <th>Tindakan</th>
                         </tr>

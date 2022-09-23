@@ -71,9 +71,14 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        if(!Auth::user()->can('update-category')){
-            abort(403, 'TIADA HAK AKSES');
-        }
+
+        // if(!Auth::user()->can('update-category')){
+        //     abort(403, 'TIADA HAK AKSES');
+        // }else{
+            $this->authorize('update',$category);
+        // }
+        // dd($category);
+
         // $category = Category::find($category);
         // dd($category);
         return Inertia::render('Category/Create',compact('category'));

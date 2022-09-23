@@ -30,7 +30,7 @@ class CategoryPolicy
      */
     public function view(User $user, Category $category)
     {
-        //
+
     }
 
     /**
@@ -54,6 +54,11 @@ class CategoryPolicy
     public function update(User $user, Category $category)
     {
         //
+        if($user->can('update-category')){
+            return true;
+        }else{
+            return $user->id === $category->user_id;
+        }
     }
 
     /**
