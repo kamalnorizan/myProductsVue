@@ -18,6 +18,10 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+// DB::listen(function ($event) {
+//     dump($event->sql);
+// });
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),

@@ -61,4 +61,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Category::class, 'user_id', 'id');
     }
+
+    /**
+     * The roles that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles','role_id', 'user_id');
+    }
+
 }
