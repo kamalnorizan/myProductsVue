@@ -35,6 +35,8 @@ Route::get('/category', [CategoryController::class,'index'])->middleware(['auth'
 
 Route::post('/category', [CategoryController::class,'store'])->middleware(['auth', 'verified'])->name('category.store');
 
+Route::patch('/category/{category}', [CategoryController::class,'update'])->middleware(['auth', 'verified'])->name('category.update');
+
 Route::get('/category/create', function () {
     return Inertia::render('Category/Create');
 })->middleware(['auth', 'verified'])->name('category.create');
