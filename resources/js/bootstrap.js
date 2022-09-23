@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import '../scss/app.scss'
+import 'sweetalert2/dist/sweetalert2.min.css'
 // import * as bootstrap from 'bootstrap'
 window._ = _;
 

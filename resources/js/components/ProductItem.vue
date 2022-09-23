@@ -1,12 +1,26 @@
 <script setup>
 import { Inertia } from '@inertiajs/inertia';
+import Swal from 'sweetalert2/dist/sweetalert2';
 
 defineProps({
    product: Object,
 });
 
 const remove = (product_id) => {
-    Inertia.delete(route('product.destroy', {product: product_id}));
+    Swal.fire({
+        title: 'Warning',
+        text: 'Are you sure you want to remove this product?',
+        icon: 'warning',
+        showCancelButton: true,
+        showConfirmButton: true,
+        cancelButtonText: 'No',
+        confirmButtonText: 'Yes! I\'m sure',
+        confirmButtonColor: '#F00'
+    }).then((value)=>{
+        if(value.isConfirmed){
+            Inertia.delete(route('product.destroy', {product: product_id}));
+        }
+    });
 }
 </script>
 <template>
