@@ -31,6 +31,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('show-category',function(){
             return auth()->user()->roles->whereIn('name',['Admin','Staff'])->first();
         });
+        Gate::define('delete-category',function(){
+            return auth()->user()->roles->whereIn('name',['Admin'])->first();
+        });
 
     }
 }

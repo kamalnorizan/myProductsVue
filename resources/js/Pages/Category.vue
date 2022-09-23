@@ -6,6 +6,7 @@ import Alert from '@/components/Alert.vue';
 
 defineProps({
     categories: Array,
+    permission: Object
 });
 
 
@@ -26,14 +27,14 @@ defineProps({
                 <table class="table" id="category_tbl">
                     <thead>
                         <tr>
-                            <th>Bil</th>
+                            <th>Bil </th>
                             <th>Kategori</th>
                             <th>Bil(Produk)</th>
                             <th>Tindakan</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <CategoryItem v-for="category in categories" :category="category"></CategoryItem>
+                        <CategoryItem :permission="permission" v-for="category in categories" :category="category"></CategoryItem>
                     </tbody>
                 </table>
             </div>

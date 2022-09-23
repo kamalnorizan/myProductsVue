@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
-
+use Auth;
 class HandleInertiaRequests extends Middleware
 {
     /**
@@ -45,6 +45,11 @@ class HandleInertiaRequests extends Middleware
             },
             'flash' => [
                 'message' => session('message')
+            ],
+            'permission'=>[
+                'show-category'=> Auth::check() ? Auth::user()->can('show-category') : false,
+                'update-category'=> Auth::check() ? Auth::user()->can('update-category'): false,
+                'delete-category'=> Auth::check() ? Auth::user()->can('delete-category'): false
             ]
         ]);
     }

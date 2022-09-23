@@ -20,6 +20,7 @@ class CategoryController extends Controller
         if(!Auth::user()->can('show-category')){
             abort(403);
         }
+
         $categories = Category::withCount('products')->get();
 
         return Inertia::render('Category',compact('categories'));
@@ -71,7 +72,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         if(!Auth::user()->can('update-category')){
-            abort(403);
+            abort(403, 'TIADA HAK AKSES');
         }
         // $category = Category::find($category);
         // dd($category);
