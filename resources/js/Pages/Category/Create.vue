@@ -5,20 +5,25 @@ import { Inertia } from '@inertiajs/inertia';
 import {Link, Head} from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
-    category: Object,
+    category: {
+        type: Object,
+        default: {
+            name:null
+        }
+    },
 });
-
 const form = reactive({
     name: null
 });
-
 const submit =  () => {
-    Inertia.post('/category', form);
+    if(props.category.name==''){
+        Inertia.post('/category', form);
+    }else{
+        Inertia.patch(route('category.update',{category:props.category.id} ),form);
+    }
 };
-
 onMounted(()=>{
-    console.log(props);
-    console.log(form.name);
+    form.name = props.category.name;
 });
 
 </script>
@@ -42,7 +47,7 @@ onMounted(()=>{
                                 <label for="name">Name</label>
                                 <input v-model="form.name" type="text" class="form-control" name="name" id="name" >
                                 </div>
-                                <button type="submit" class="btn btn-info mt-2 float-right">Create</button>
+                                <button  type="submit" class="btn btn-info mt-2 float-right"><span v-if="props.category.name==null">Create</span><span v-if="props.category.name!=null">Update</span></button>
                             </form>
                         </div>
                     </div>

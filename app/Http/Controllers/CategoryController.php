@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-
+use Illuminate\Support\Facades\Gate;
 class CategoryController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -98,7 +99,14 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+
+        if (! Gate::allows('update-category', $category)) {
+            abort(403,'You are not allowed to update this category');
+        }
+
+        $category->name = $request->name;
+        $category->save();
+        return redirect('/category')->with('message', 'Category created successfully');
     }
 
     /**

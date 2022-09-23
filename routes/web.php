@@ -6,6 +6,7 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Auth\LDAPController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,9 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// DB::listen(function ($event) {
+//     dump($event->sql);
+// });
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -39,10 +42,13 @@ Route::get('/category/create', function () {
     return Inertia::render('Category/Create');
 })->middleware(['auth', 'verified'])->name('category.create');
 
+Route::patch('/category/{category}', [CategoryController::class,'update'])->middleware(['auth', 'verified'])->name('category.update');
+
 Route::get('/category/{category}/edit', [CategoryController::class,'edit'])->middleware(['auth', 'verified'])->name('category.edit');
 
 Route::get('product/productbycategory/{category}', [ProductController::class,'productsbycategory'])->name('product.productbycategory');
 
 Route::delete('product/{product}', [ProductController::class,'destroy'])->name('product.destroy');
+
 
 require __DIR__.'/auth.php';
