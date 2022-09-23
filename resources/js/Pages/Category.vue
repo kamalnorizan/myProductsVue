@@ -34,7 +34,7 @@ defineProps({
                         </tr>
                     </thead>
                     <tbody>
-                        <CategoryItem :permission="permission" v-for="category in categories" :category="category"></CategoryItem>
+                        <CategoryItem  v-for="category in categories" :category="category"></CategoryItem>
                     </tbody>
                 </table>
             </div>

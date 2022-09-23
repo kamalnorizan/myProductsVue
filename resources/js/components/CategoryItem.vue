@@ -5,10 +5,7 @@ import Swal from 'sweetalert2/dist/sweetalert2';
 
 defineProps({
     category: Object,
-    permission: {
-        type : Object,
-        default : []
-    }
+
 });
 
 const remove = (id)=>{
@@ -36,8 +33,8 @@ const remove = (id)=>{
         <td>{{category.products_count}} </td>
         <td>
             <Link :href="route('product.productbycategory',{category:category.id})" class="btn btn-sm btn-primary ml-1">Show </Link>
-            <Link v-if="permission['update-category']" :href="route('category.edit',{category:category.id})" class="btn btn-sm btn-warning ml-1">Edit</Link>
-            <Link v-if="permission['delete-category']" @click="remove(category.id)" class="btn btn-sm btn-danger ml-1">Delete</Link>
+            <Link v-if="$page.props.permission['update-category']" :href="route('category.edit',{category:category.id})" class="btn btn-sm btn-warning ml-1">Edit</Link>
+            <Link v-if="$page.props.permission['delete-category']" @click="remove(category.id)" class="btn btn-sm btn-danger ml-1">Delete</Link>
 
         </td>
     </tr>
