@@ -43,6 +43,8 @@ Route::get('/category/create', function () {
 
 Route::get('/category/{category}/edit', [CategoryController::class,'edit'])->middleware(['auth', 'verified'])->name('category.edit');
 
+Route::delete('/category/{category}', [CategoryController::class,'destroy'])->middleware(['auth', 'verified'])->name('category.destroy');
+
 Route::get('product/productbycategory/{category}', [ProductController::class,'productsbycategory'])->name('product.productbycategory');
 
 Route::delete('product/{product}', [ProductController::class,'destroy'])->name('product.destroy');
